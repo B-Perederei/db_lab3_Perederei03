@@ -15,14 +15,6 @@ GROUP BY platform.plat_id
 ORDER BY platform.plat_id;
 '''
 
-queryCreatView1BasedOnName = '''
-CREATE VIEW CopiesSoldByPlatform AS
-SELECT plat_name, SUM(copies_sold) AS copies_sold
-FROM (GamePlatformRegionSales JOIN platform ON GamePlatformRegionSales.plat_id = platform.plat_id) 
-GROUP BY plat_name
-ORDER BY plat_name;
-'''
-
 queryCreatingView2 = '''
 CREATE VIEW RealisesOnEachPlatform AS
 SELECT plat_name, COUNT(game_id) AS games_realised

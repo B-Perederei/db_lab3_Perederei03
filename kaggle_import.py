@@ -55,7 +55,6 @@ with conn:
     cur = conn.cursor()
     cur.execute(queryDelete)
     
-    
     with open(INPUT_CSV_FILE, 'r', encoding='UTF-8') as info:
         reader = csv.DictReader(info)
         
@@ -84,7 +83,6 @@ with conn:
                         # If it is, skipping the game
                         print(f"Dublicate found: {serial_idx}, {row['Name']}")
                         continue
-
 
                 if row['Year_of_Release'] == 'N/A':
                     cur.execute(queryAddGamePlatform, (game_idx, row['Platform'], None))
