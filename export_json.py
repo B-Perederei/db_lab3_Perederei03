@@ -35,4 +35,4 @@ with conn:
         data[table] = rows
 
 with open(OUTPUT_FILE, 'w') as outf:
-    json.dump(data, outf, default = str)
+    json.dump(data, outf, default = str, indent=4)

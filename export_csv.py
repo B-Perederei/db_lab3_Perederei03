@@ -26,7 +26,7 @@ with conn:
     for table_name in TABLES:
         cur.execute('SELECT * FROM ' + table_name)
         fields = [x[0] for x in cur.description]
-        with open(OUTPUT_FILE.format(table_name), 'w', encoding='UTF-8') as outfile:
+        with open(OUTPUT_FILE.format(table_name), 'w', encoding='UTF-8', newline='') as outfile:
             writer = csv.writer(outfile)
             writer.writerow(fields)
             for row in cur:
